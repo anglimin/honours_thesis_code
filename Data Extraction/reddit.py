@@ -77,7 +77,7 @@ def extract_reddit_comments(client_id, client_secret, user_agent, username, pass
     return reddit_data
 
 
-# Function to clean the data from reddit and filter from 2015
+# Function to clean the data from reddit and only keep data from 2015 onwards
 def data_processing(reddit_data):
 
     # remove every duplicated and deleted and removed comments
@@ -86,10 +86,15 @@ def data_processing(reddit_data):
     reddit_drop = reddit_drop[reddit_drop.comment != '[removed]']
     reddit_drop.reset_index(inplace=True,drop=True)
 
+    # Only keep data from 2015 January onwards till end of October 2020
+    reddit_drop = reddit_drop[int(reddit_drop['comment_timestamp'][:4]) >= 2015]
+    reddit_drop.reset_index(inplace=True,drop=True)
+
     """
     Things to remove from the reddit data:
     1) Websites
     2) All non-alphabet and number symbols and line spaces
+    3) Bot comments
     3) Remove all empty data after step 1 and 2
     """
     compiler1 = re.compile('http[s]?://\S+')
@@ -99,6 +104,9 @@ def data_processing(reddit_data):
         clean_text2= re.sub(compiler2,' ',clean_text1)
         cleaner_comment = clean_text2.replace('\n',' ')
         reddit_drop.loc[i,'comment'] = cleaner_comment
+    reddit_drop.comment = reddit_drop.comment.fillna('')
+    reddit_drop = reddit_drop[~reddit_drop.comment.str.contains(r'\bbot\b',regex=True)]
+    reddit_drop.reset_index(inplace=True,drop=True)
     reddit_drop.to_csv('reddit_data.csv',index=False)
     return reddit_drop
 
