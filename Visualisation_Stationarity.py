@@ -145,16 +145,15 @@ def derive_facet_grid_with_adfuller(df,interval):
     stationarity_df = pd.DataFrame(data,columns=['Topic Number','ADF Statistic','Critical Value (ADF 1%)','Critical Value (ADF 5%)','Critical Value (ADF 10%)','ADF Result','KPSS Statistic','Critical Value (KPSS 1%)','Critical Value (KPSS 5%)','Critical Value (KPSS 10%)','KPSS Result'])
     for i in range(len(stationarity_df)):
         if stationarity_df.loc[i,'ADF Result'] == 'Time Series is Stationary' and stationarity_df.loc[i,'KPSS Result'] == 'Time Series is Stationary':
-            stationarity_df.loc[i,'Final Stationarity Result'] = 'Time Series is definitely Stationary'
-        elif stationarity_df.loc[i,'ADF Result'] == 'Time Series is Stationary' and stationarity_df.loc[i,'KPSS Result'] == 'Time Series is Non-Stationary':
-            stationarity_df.loc[i,'Final Stationarity Result'] = 'Time Series is Difference-Stationary'
-        elif stationarity_df.loc[i,'ADF Result'] == 'Time Series is Non-Stationary' and stationarity_df.loc[i,'KPSS Result'] == 'Time Series is Stationary':
-            stationarity_df.loc[i,'Final Stationarity Result'] = 'Time Series is Trend-Stationary'
+            stationarity_df.loc[i,'Final Stationarity Result'] = 'Definite Stationary'
+        elif stationarity_df.loc[i,'ADF Result'] == 'Time Series is Non-Stationary' and stationarity_df.loc[i,'KPSS Result'] == 'Time Series is Non-Stationary':
+            stationarity_df.loc[i,'Final Stationarity Result'] = 'Non-Stationary'
         else: 
-            stationarity_df.loc[i,'Final Stationarity Result'] = 'Time Series is definitely Non-Stationary'
+            stationarity_df.loc[i,'Final Stationarity Result'] = 'Non-Conclusive'
     stationarity_df.to_csv('stat_df.csv',index=False)
     return stationarity_df, new_reddit_pivot
 
 if __name__ == "__main__":
-    tagged_reddit = time_interval_tagger('reddit_lda.csv',3)
+    csv_string = 'reddit_lda.csv'
+    tagged_reddit = time_interval_tagger(csv_string,3)
     stat_df,new_reddit_pivot = derive_facet_grid_with_adfuller(tagged_reddit,3)
