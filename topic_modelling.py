@@ -20,6 +20,7 @@ import ast
 import random
 sns.set_style("darkgrid")
 from pprint import pprint
+import os
 
 import warnings
 warnings.filterwarnings("ignore",category=DeprecationWarning)
@@ -28,10 +29,7 @@ warnings.filterwarnings("ignore",category=DeprecationWarning)
 import logging
 logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=logging.ERROR)
 
-# Environment Variables
-import os
-
-# Change the mallet path on your end (C Drive)
+# Environment Variables -> Change the mallet path on your end (C Drive)
 MALLET_PATH = 'XXXXXXXX'
 os.environ.update({'MALLET_HOME': MALLET_PATH})
 
@@ -75,7 +73,31 @@ def apply_all(text):
     """
     return lemmatize_words(remove_stop_words(initial_clean(text)))
 
+def keyword_removal(text):
+    """
+    Function to remove keywords from the tokenized text list
+    """
+    keyword_lst = ['bus','smrt','SMRT','buses','LRT','MRT','LTA','mrt','lta','lrt','public transport','land transport authority''sbs','SBS','sbs transit','tower transit','transitlink']
+    return list(set(text) - set(keyword_lst))
+
+def clean_data():
+    pass
+
+# Function for the LDA-MALLET topic modelling
+def lda_modelling(df):
+    """
+    Input parameter: Tokenised and pre-processed dataframe
+    Outputs: 
+        1) Dataframe with tagged topic number for each textual document
+        2) Top co-occuring keywords for each topic 
+    """
+    # Function to derive the topic number with the highest coherence measure
+    pass
+
+    # Function to train the model and tag the derived topics
 
 
 
 if __name__ == "__main__":
+    # for reddit and twitter data
+    pass
