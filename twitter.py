@@ -45,7 +45,7 @@ def extract_tweets(consumer_key,consumer_secret,access_token_key,access_token_se
     api = TwitterAPI(consumer_key,consumer_secret,access_token_key,access_token_secret)
     PRODUCT= 'fullarchive'
     LABEL = label
-    SEARCH_TERM = '(buses OR bus OR smrt OR transport OR mrt OR lrt OR public transport OR sbs OR sbs transit OR transitlink OR lta OR towertransit) lang:en place:Singapore' # Adding place automatially removes retweets
+    SEARCH_TERM = '(bus OR smrt OR transport OR mrt OR lrt OR public transport OR sbs OR sbs transit OR transitlink OR lta OR towertransit OR land transport authority) lang:en place:Singapore' # Adding place automatially removes retweets
 
     pager = TwitterPager(api, 'tweets/search/%s/:%s' % (PRODUCT, LABEL),
                  {'query': SEARCH_TERM,'maxResults':500,'toDate':2020102300001,'fromDate':201501010001}) 

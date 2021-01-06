@@ -43,7 +43,7 @@ def extract_reddit_comments(client_id, client_secret, user_agent, username, pass
         topics_data = topics_data.assign(timestamp = _timestamp)
         return topics_data
     
-    transport_threads = getting_submissions(singapore,'bus','smrt','buses','LRT','MRT','LTA','public transport','land transport authority''sbs','sbs transit','tower transit','transitlink')
+    transport_threads = getting_submissions(singapore,'bus','smrt','LRT','MRT','LTA','public transport','land transport authority''sbs','sbs transit','tower transit','transitlink','transport')
 
     # Drop duplicate threads 
     transport_threads.drop_duplicates(subset=['id'],keep='first',inplace=True)
