@@ -1,7 +1,9 @@
 # GE4401: Honours Thesis
 
 
-This repository contains the scripts that I have used for my honours thesis.
+This repository contains the scripts that I have used for my methodology framework. 
+In sequential order, the scripts are executed as follow: 
+
+### Disclaimers
 
 
-Topic: INVESTIGATING THE UTILITY OF ONLINE PUBLIC TRANSPORT PERSPECTIVES AS A PROXY OF DIGITAL PARITCIPATORY URBANISM 
