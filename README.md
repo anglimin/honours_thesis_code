@@ -13,7 +13,6 @@ Following diagram showcases the methodology flow (for pure scripting), as well a
 
 #### Disclaimer 1: Raw data will not be supplemented in this repository to prevent breach of privacy. Refer to Appendix C to understand data schema of the raw and processed data. <br />
 #### Disclaimer 2: reddit.py and twitter.py contain environmental variables that users need to change on their own end.
-<br />
 #### Disclaimer 3: I have also attached the script (<ins>reddit_locations.py</ins>) for identifying locations with Reddit commments through spaCy Named Entity Recognition (NER). However, these results are not utilised for subsequent analysis. Moreover, the trained NER model (spacy_sg) may not be the best identifier of Singapore's locations in lieu of various reasons that will not be covered in this thesis. 
 
 ### Initialising the package folder and dependencies.
