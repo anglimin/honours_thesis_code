@@ -1,0 +1,29 @@
+{
+  "lang":"en",
+  "name":"sg_buildings_spacy_model",
+  "version":"0.0.0",
+  "spacy_version":">=2.3.1",
+  "description":"",
+  "author":"",
+  "email":"",
+  "url":"",
+  "license":"",
+  "spacy_git_version":"554291558",
+  "vectors":{
+    "width":0,
+    "vectors":0,
+    "keys":0,
+    "name":"spacy_pretrained_vectors"
+  },
+  "pipeline":[
+    "ner"
+  ],
+  "factories":{
+    "ner":"ner"
+  },
+  "labels":{
+    "ner":[
+      "ADDRESS"
+    ]
+  }
+}
