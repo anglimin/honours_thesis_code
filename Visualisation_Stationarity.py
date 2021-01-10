@@ -3,7 +3,6 @@ from tqdm import tqdm
 import random
 import numpy as np
 import matplotlib.pyplot as plt
-%matplotlib inline
 import seaborn as sns
 from statsmodels.tsa.stattools import adfuller,kpss,grangercausalitytests
 from numpy import log

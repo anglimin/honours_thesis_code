@@ -1,0 +1,12 @@
+spacy==2.3.1
+numpy==1.16.1
+scipy==1.4.1
+matplotlib==3.0.2
+praw==6.5.1
+pandas==1.0.3
+nltk==3.5
+tqdm==4.43.0
+gensim==3.8.3
+seaborn==0.11.1
+statsmodels==0.12.1
+TwitterAPI==2.6.2.1
