@@ -151,9 +151,9 @@ def derive_facet_grid_with_adfuller(df,interval):
         else: 
             stationarity_df.loc[i,'Final Stationarity Result'] = 'Non-Conclusive'
     stationarity_df.to_csv('stat_df.csv',index=False)
-    return stationarity_df, new_reddit_pivot
+    return stationarity_df, g
 
 if __name__ == "__main__":
     csv_string = 'reddit_lda.csv'
     tagged_reddit = time_interval_tagger(csv_string,3)
-    stat_df,new_reddit_pivot = derive_facet_grid_with_adfuller(tagged_reddit,3)
+    stat_df, facet_grid = derive_facet_grid_with_adfuller(tagged_reddit,3)
