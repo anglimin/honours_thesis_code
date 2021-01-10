@@ -3,7 +3,7 @@
 ### Title: Identifying Discrepancies within current transport initiatives: An Urban Informatics Approach
 
 This repository contains the scripts that I have used for my methodology.<br /> 
-In sequential order, the scripts are executed as follow: 
+In sequential order, the scripts should be executed as follow: 
   1. reddit.py and twitter.py
   2. topic_modelling.py
   3. Visualisation_Stationarity.py
